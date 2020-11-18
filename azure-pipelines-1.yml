@@ -31,11 +31,7 @@ stages:
         containerRegistry: 'kotidockerhub'
         command: 'push'
         tags: 'vellankikoti/products-store-mvc:v2.$(Build.BuildId)'
-    - task: FileTransform@1
-      inputs:
-        folderPath: 
-        fileType: 'json'
-        targetFiles: 'mvc-deployment.azure.yaml'
+    
     - task: CopyFiles@2
       inputs:
         Contents: '**'
