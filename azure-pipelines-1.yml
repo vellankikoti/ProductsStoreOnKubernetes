@@ -25,12 +25,6 @@ stages:
         containerRegistry: 'kotidockerhub'
         command: 'build'
         Dockerfile: '**/Dockerfile'
-        tags: '$(tag)'
-    - task: Docker@2
-      inputs:
-        containerRegistry: 'kotidockerhub'
-        command: 'build'
-        Dockerfile: '**/Dockerfile'
         tags: 'vellankikoti/products-store-mvc:v2.$(Build.BuildId)'
     - task: Docker@2
       inputs:
@@ -39,7 +33,7 @@ stages:
         tags: 'vellankikoti/products-store-mvc:v2.$(Build.BuildId)'
     - task: FileTransform@1
       inputs:
-        folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip'
+        folderPath: 
         fileType: 'json'
         targetFiles: 'mvc-deployment.azure.yaml'
     - task: CopyFiles@2
