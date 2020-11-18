@@ -23,7 +23,6 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'kotidockerhub'
-        repository: 'products_store_mvc'
         command: 'build'
         Dockerfile: '**/Dockerfile'
         tags: 'vellankikoti/products_store_mvc:v2.$(Build.BuildId)'
